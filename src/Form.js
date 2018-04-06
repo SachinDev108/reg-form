@@ -7,10 +7,11 @@ import Paper from 'material-ui/Paper'
 import { Card, CardMedia } from 'material-ui/Card'
 
 import drive from './drive.jpg'
+import jobufo from './jobufo.jpg'
 import PersonIcon from './PersonIcon'
 import DeleteIcon from './DeleteIcon'
 
-const Header = ({ title }) => {
+const Header = ({ title, icon }) => {
   const headerStyle = {
     padding: '10px',
     position: 'sticky',
@@ -19,7 +20,7 @@ const Header = ({ title }) => {
   }
   return(
     <Paper style={ headerStyle } zDepth={1}>
-      <PersonIcon width='30px' height='30px'/>
+      <img src={ icon } width='30px' height='30px'/>
       <span className='person-title'>{title}</span>
     </Paper>
   )
@@ -73,12 +74,12 @@ export default class Form extends React.Component {
     return (
       <form>
         <Media media={drive} onClose={this.onClose}/> 
-        <Header title='Jobsandtalent'/>
+        <Header title=' JOBUFO - DEIN VIDEO. DEIN JOB.' icon={ jobufo }/>
         <Paper style={{padding: '10px'}}>
-          <div>Erhalte mehr infos, indem du deine Daten unten angibst.</div>
+          <div>KOSTENLOS BRINGEN WIR DICH IN DEINEN TRAUMJOB!</div>
           <div className='dropdowns'>
             <SelectField
-              floatingLabelText='Wie ist dein Deutsch-Niveau'
+              floatingLabelText='WHAT IS YOUR APPROX. SCHOOL DEGREE?'
               value={this.state.dropdownVal1}
               fullWidth
               onChange={(e, i, v) => this.handleChange('dropdownVal1', v)}
@@ -91,8 +92,9 @@ export default class Form extends React.Component {
             </SelectField>
             <SelectField
               fullWidth
-              floatingLabelText='Seit wann hast du den Fuhrerschein'
+              floatingLabelText='DO YOU ALREADY KNOW YOUR PLUM JOB? TELL US!'
               value={this.state.dropdownVal2}
+              style={{ height: '95px' }}
               onChange={(e, i, v) => this.handleChange('dropdownVal2', v)}
             >
               <MenuItem value='seit weniger als 2 jahre' primaryText='seit weniger als 2 jahre' />
@@ -111,15 +113,6 @@ export default class Form extends React.Component {
           <div className='personal-info'>
             <TextField
               fullWidth
-              name='email'
-              hintText='name@email.com'
-              floatingLabelText='E-Mail-Adresse'
-              floatingLabelFocusStyle={{ color: 'rgba(0, 0, 0, 0.4)' }}
-              value={this.state.email}
-              onChange={(e, v) => this.handleChange('email', v)}
-            />
-            <TextField
-              fullWidth
               name='firstName'
               hintText='Vorname'
               floatingLabelText='Vorname'
@@ -129,21 +122,30 @@ export default class Form extends React.Component {
             />
             <TextField
               fullWidth
-              name='telephone'
-              hintText='+49177332228'
-              floatingLabelText='Telefonnumer'
-              floatingLabelFocusStyle={{ color: 'rgba(0, 0, 0, 0.4)' }}
-              value={this.state.username}
-              onChange={(e, v) => this.handleChange('telephone', v)}
-            />
-            <TextField
-              fullWidth
               name='nickname'
               hintText='Nachname'
               floatingLabelText='Nachname'
               floatingLabelFocusStyle={{ color: 'rgba(0, 0, 0, 0.4)' }}
               value={this.state.nickname}
               onChange={(e, v) => this.handleChange('nickname', v)}
+            />
+            <TextField
+              fullWidth
+              name='email'
+              hintText='name@email.com'
+              floatingLabelText='E-Mail-Adresse'
+              floatingLabelFocusStyle={{ color: 'rgba(0, 0, 0, 0.4)' }}
+              value={this.state.email}
+              onChange={(e, v) => this.handleChange('email', v)}
+            />
+            <TextField
+              fullWidth
+              name='telephone'
+              hintText='+49177332228'
+              floatingLabelText='Telefonnumer'
+              floatingLabelFocusStyle={{ color: 'rgba(0, 0, 0, 0.4)' }}
+              value={this.state.username}
+              onChange={(e, v) => this.handleChange('telephone', v)}
             />
           </div>
           <div className='submit'>
