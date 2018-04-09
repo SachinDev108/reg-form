@@ -100,15 +100,6 @@ export default class Form extends React.Component {
               <MenuItem value='seit weniger als 2 jahre' primaryText='seit weniger als 2 jahre' />
               <MenuItem value='seit genau oder mehr als 2 jahre' primaryText='seit genau oder mehr als 2 jahre' />
             </SelectField>
-            <SelectField
-              fullWidth
-              floatingLabelText='Besitzt einen Person...'
-              value={this.state.dropdownVal3}
-              onChange={(e, i, v) => this.handleChange('dropdownVal3', v)}
-            >
-              <MenuItem value='Ja' primaryText='Ja' />
-              <MenuItem value='Nein' primaryText='Nein' />
-            </SelectField>
           </div>
           <div className='personal-info'>
             <TextField
